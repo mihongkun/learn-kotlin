@@ -22,3 +22,4 @@ hs_err_pid*
 .idea/vcs.xml
 .idea/workspace.xml
 learn-kotlin.iml
+out/production/learn-kotlin/META-INF/learn-kotlin.kotlin_module
