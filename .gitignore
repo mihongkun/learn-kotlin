@@ -21,9 +21,5 @@ hs_err_pid*
 .idea/thriftCompiler.xml
 .idea/vcs.xml
 .idea/workspace.xml
-learn-kotlin.iml
-out/production/learn-kotlin/META-INF/learn-kotlin.kotlin_module
-/package/build/
-/package/out/
-/.idea/
 /out/
+
