@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="ear" name="Gradle : com.mihk : chapter04-1.0-SNAPSHOT.ear">
+    <output-path>$PROJECT_DIR$/chapter04/build/libs</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$/chapter04" />
+    </properties>
+    <root id="archive" name="chapter04-1.0-SNAPSHOT.ear">
+      <element id="artifact" artifact-name="Gradle : com.mihk : chapter04-1.0-SNAPSHOT.ear (exploded)" />
+    </root>
+  </artifact>
+</component>

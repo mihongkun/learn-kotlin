@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Gradle : com.mihk : chapter04-1.0-SNAPSHOT.war">
+    <output-path>$PROJECT_DIR$/chapter04/build/libs</output-path>
+    <properties id="gradle-properties">
+      <options external-project-path="$PROJECT_DIR$/chapter04" />
+    </properties>
+    <root id="archive" name="chapter04-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="Gradle : com.mihk : chapter04-1.0-SNAPSHOT.war (exploded)" />
+    </root>
+  </artifact>
+</component>

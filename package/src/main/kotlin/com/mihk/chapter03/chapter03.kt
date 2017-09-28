@@ -1,3 +1,6 @@
+import com.mihk.chapter03.CollectionUtil
+import com.mihk.utils.j2s
+import com.mihk.utils.lastChar
 import java.util.*
 
 fun main(args: Array<String>) {
@@ -32,11 +35,66 @@ fun main(args: Array<String>) {
     val nums = listOf(1, 2, 3, 4, 6, 123, 12, 1, 12, 23, 1, 2, 3, 4, 5, 6)
     println(nums)
 
-    fun <T>fomatList(collection:Collection<T>,start:String,end:String,separator:String):String {
-        val result = StringBuilder().append(start)
-        for (c in collection) if (c != collection.last()) result.append(c).append(separator) else result.append(c)
-        return result.append(end).toString()
-    }
-    println(fomatList(nums,"(",")",";"))
+    val util = CollectionUtil()
+    println(util.fomatList(collection = nums, start = "(", end = ")", separator = ";"))
+    println(util.fomatList(collection = nums, start = " ", end = " ", separator = " "))
+    println(util.fomatList(collection = nums, start = " ", end = " ", separator = "."))
+    println(util.fomatList(nums))
+
+
+
+    println("\"Kotlin\" last char is: ${"Kotlin".lastChar()}")
+    println("Kotlin".last())
+
+    println(nums.j2s(start = "("))
+    println(nums.j2s(end = " "))
+    println(nums.j2s(separator = "."))
+    println(nums.j2s(start = " ", end = " "))
+    println(nums.j2s(start = " ", separator = "."))
+    println(nums.j2s(end = " ", separator = "."))
+    println(nums.j2s(start = " ", end = " ", separator = "."))
+
+    val intmap = mapOf<Int, Int>(1 to 10000, 2 to 20000)
+    println(intmap.get(1))
+
+    val (number, name) = 1 to "one"
+    println("naumber is $number,name is $name.")
+    println("123.345.1.234345-A".split("\\.|-".toRegex()))
+    println("123.345.1.234345-A".split(".", "-"))
+    parsePath("/home/m/Downloads/kotlin.java")
+    parsePathWithReg("/home/m/Downloads/kotlin.kt")
+    println(mihongkunLogo)
+}
+
+fun parsePath(path: String) {
+    val directory = path.substringBeforeLast("/")
+    val fullName = path.substringAfterLast("/")
+    val fileName = fullName.substringBeforeLast(".")
+    val extension = fullName.substringAfterLast(".")
+    println("Dir: ${directory},name: ${fileName},extension: ${extension}")
 
 }
+
+
+fun parsePathWithReg(path: String) {
+    val regex = """(.+)/(.+)\.(.+)""".toRegex()
+    val matchResult = regex.matchEntire(path)
+    if (matchResult != null) {
+        val (directory, fileName, extension) = matchResult.destructured
+        println("Dir: ${directory},name: ${fileName},extension: ${extension}")
+    }
+
+}
+
+
+val mihongkunLogo ="""
+       .___.        .___.        .._..   _        _      _____      __      _     _______     _    __   _        _   __      _  @MT
+      ./ _ \.      ./ _ \.       .| |.  | |      | |    /  _  \    |  \    | |   / _____ \   | |  / /  | |      | | |  \    | |
+     ./ /.\ \.    ./ /.\ \.      .| |.  | |      | |   /  / \  \   |   \   | |  / /     \_\  | | / /   | |      | | |   \   | |
+    ./ /. .\ \.  ./ /. .\ \.     .| |.  | |______| |  |   |  |  |  | |\ \  | |  | |  ______  | |/_/    | |      | | | |\ \  | |
+   ./ /.   .\ \../ /.   .\ \.    .| |.  |  ______  |  |   |  |  |  | | \ \ | |  | | |____  | | \ \     | |      | | | | \ \ | |
+  ./ /.     .\ \/ /.     .\ \.   .| |.  | |      | |  |   |  |  |  | |  \ \| |  | |      | | | |\ \    \ \      / / | |  \ \| |
+ ./ /.       .\  /.       .\ \.  .| |.  | |      | |   \   \_/  /  | |   \   |   \ \_____/ / | | \ \    \ \____/ /  | |   \   |
+./_/.         .\/.         .\_\. .|_|.  |_|      |_|    \______/   |_|    \__|    \_______/  |_|  \_\    \______/   |_|    \__|
+"""
+//infix fun Any.to(other:Any) = Pair(this,other)
